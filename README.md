@@ -27,8 +27,8 @@ LICON AI Casting Assistant
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/](https://github.com/)[your-username]/licon-ai-cast.git
-    cd licon-ai-cast
+    git clone https://github.com/twenty20productionpictures-netizen/LYQON.git
+    cd LYQON
     ```
 
 2.  **Backend Setup**
