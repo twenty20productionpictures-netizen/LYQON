@@ -1,73 +1,128 @@
-# Welcome to your Lovable project
+# LYQON#
+LICON AI Casting Assistant
 
-## Project info
+**An intelligent casting tool that empowers directors with objective, data-driven analysis of actor auditions.**
 
-**URL**: https://lovable.dev/projects/184dd528-13c0-459d-9869-b6ffd27943b1
+---
 
-## How can I edit this code?
+## Team Members
 
-There are several ways of editing your application.
+| Name              | Role                  | Contact                         |
+| ----------------- | --------------------- | ------------------------------- |
+| **Ashwin R**      | Project Lead          | `ashwinr10899@gmai.com` / [@github] |
+| **Rebin George**  | Frontend Lead         | `rebinforu@gmail.com` / [@github] |
+| **Akul Vinod**    | UI/UX Designer        | `etmrakul2@gmail.com` / [@github] |
+| **Tarun Girish**  | Project Manager       | `tarun.girish2006gmail.com` / [@github] |
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/184dd528-13c0-459d-9869-b6ffd27943b1) and start prompting.
+## How to Run Locally
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Python 3.8+ & Pip
+- Node.js & NPM
+- Docker & Docker Compose (for containerized setup)
 
-**Use your preferred IDE**
+### Step-by-Step Instructions
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/](https://github.com/)[your-username]/licon-ai-cast.git
+    cd licon-ai-cast
+    ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2.  **Backend Setup**
+    ```bash
+    # Navigate to the backend source directory
+    cd src/backend
 
-Follow these steps:
+    # Create and activate a virtual environment
+    python -m venv venv
+    source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+    # Install Python dependencies
+    pip install -r requirements.txt
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3.  **Frontend Setup**
+    ```bash
+    # Navigate to the frontend source directory
+    cd src/frontend
 
-# Step 3: Install the necessary dependencies.
-npm i
+    # Install Node.js dependencies
+    npm install
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+4.  **Run the Development Servers**
+    - Open two separate terminal windows.
+    - In the first terminal, run the **Backend**:
+      ```bash
+      # From the src/backend directory
+      flask --app app.main run
+      ```
+    - In the second terminal, run the **Frontend**:
+      ```bash
+      # From the src/frontend directory
+      npm start
+      ```
+    - The application will be running at `http://localhost:3000`.
+
+### How to Run Tests
+To run the backend unit tests:
+```bash
+# From the root directory
+python -m unittest tests/test_api.py
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment
 
-**Use GitHub Codespaces**
+### Live Demo
+**URL:** **[https://preview--licon-ai-cast.lovable.app/dashboard/director](https://preview--licon-ai-cast.lovable.app/dashboard/director)**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Deployment Instructions (using Docker)
+The application is containerized for easy deployment.
 
-## What technologies are used for this project?
+1.  **Build and Run with Docker Compose:**
+    From the root directory of the project, run:
+    ```bash
+    docker-compose up --build
+    ```
+2.  **Accessing the Application:**
+    - The **Frontend** will be available at `http://localhost:3000`.
+    - The **Backend API** will be available at `http://localhost:5000`.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Environment Variables
 
-## How can I deploy this project?
+The backend requires the following environment variables. You can create a `.env` file in the `src/backend` directory to manage them.
 
-Simply open [Lovable](https://lovable.dev/projects/184dd528-13c0-459d-9869-b6ffd27943b1) and click on Share -> Publish.
+- `FLASK_APP=app.main`: Specifies the main application file for Flask.
+- `FLASK_ENV=development`: Sets the environment (e.g., 'development' or 'production').
+- `UPLOAD_FOLDER=app/uploads`: (Optional) Path to store temporary uploads.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## Known Limitations and TODOs
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Limitations
+- **Visual-Only Analysis:** The current model only analyzes visual data (facial expressions). It does not process vocal tone or dialogue sentiment, which are crucial for a complete performance analysis.
+- **Basic Emotion Heuristics:** The emotion detection relies on classic OpenCV heuristics rather than a deep learning model, which may limit the accuracy and nuance of the detection.
+- **No User Authentication:** The dashboard is currently public and lacks a user login/authentication system.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Future Work (TODOs)
+- **[ ] Integrate Audio Analysis:** Implement a speech-to-text and vocal tone analysis module to create a true multi-modal evaluation.
+- **[ ] Upgrade Emotion Model:** Replace the heuristic-based model with a fine-tuned deep learning (CNN) model for superior accuracy.
+- **[ ] Implement User Accounts:** Add a full authentication system with project saving and user management.
+- **[ ] Database Integration:** Add a database (e.g., PostgreSQL) to store user data, projects, and audition results permanently.
+
+---
+
+## License and Attributions
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for more details.
+
+- Face and eye detection models are provided by **OpenCV Haar Cascades**.
+- The frontend was built using **[Your Frontend Framework, e.g., React]**.
